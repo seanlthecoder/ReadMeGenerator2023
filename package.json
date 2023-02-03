@@ -1,0 +1,26 @@
+{
+  "name": "professional-readme",
+  "version": "1.0.0",
+  "description": "CLI app to generate readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seanlthecoder/ReadMeGenerator2023.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "Inquirer"
+  ],
+  "author": "Sean Durham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seanlthecoder/ReadMeGenerator2023/issues"
+  },
+  "homepage": "https://github.com/seanlthecoder/ReadMeGenerator2023#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
