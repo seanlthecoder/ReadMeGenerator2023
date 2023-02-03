@@ -1,54 +1,80 @@
+const inquier = require("inquirer");
+const fs = require("fs");
 
-const inquier = require('inquirer');
-const fs = require('fs')
-const util = require('util');
-const {generateMarkdown} = require('./utils/generateMarkdown');
-
-const fileAsync = util.promisify(fs.fileAsync)
-
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // these are the array of questions for the user
 
-const questions1 = () => {
-inquirer.prompt([
-{
-name: "title",
-message: "What is the tile of your project?"
-type: "input",
+const questionsList = [
+  {
+    name: "title",
+    message: "What is the tile of your project?",
+    type: "input",
+  },
+  {
+    name: "install",
+    type: "input",
+    message: "What are the steps required to install your project?",
+  },
+  {
+    name: "Description",
+    type: "input",
+    message: "How would you describe your project?",
+  },
+  {
+    name: "usage",
+    type: "input",
+    message: "how to use the application?",
+  },
+  {
+    name: "License",
+    type: "list",
+    message: "what is the license for this project?",
+    choices: [
+      "MIT",
+      "ISC",
+      "Apache 2.0",
+      "The Unlicense",
+      "Mozilla Public License 2.0",
+    ],
+  },
 
+  {
+    name: "Email",
+    type: "input",
+    message: "What is your email address?",
+  },
 
-},{
-name: "install",
-type: "input",
-message: "What are the steps required to install your project?",
+  {
+    name: "Github",
+    type: "input",
+    message: "What is your github username?",
+  },
 
+  {
+    name: "Testing",
+    type: "input",
+    message: "How do you test your application?",
+  },
 
-},{
-name: "Description",
-type: "input",
-message: "How would you describe your project?"
-
-
-
-},{
-name: "usage",
-type: "input",
-message: "how to use the application?",
-
-},{
-name: "License",
-type: "list",
-message: "what is the license for this project?",
-choices: ["https://img.shields.io/github/license/seanlthecoder/ReadMeGenerator2023", 
-"https://img.shields.io/npm/l/node", 
-"https://img.shields.io/cran/l/inquirer"],
-
+  {
+    name: "Contribute",
+    type: "input",
+    message: "How can someone contribute to your project?",
+  },
+];
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquier.prompt(questionsList).then(function (data) {console.log(data)});
+}
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
 // Function call to initialize app
 init();
+
+// { value:"https://img.shields.io/github/license/seanlthecoder/ReadMeGenerator2023", name:""
+// "https://img.shields.io/npm/l/node",
+// "https://img.shields.io/cran/l/inquirer"],
