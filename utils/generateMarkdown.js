@@ -36,15 +36,78 @@ function renderLicenseLink(license) {
 }
 
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
-`;
+${renderLicenseBadge(data.License)}
+
+
+## Table of Contents
+
+* [Description](#description)
+
+  
+* [Installation](#installation)
+
+
+* [Usage](#usage)
+
+
+* [License](#license)
+
+
+* [Email](#email)
+
+* [Github](#github)
+
+* [Testing](#testing)
+  
+  
+
+### Description
+This is a dynamically generated README table.
+${data.Description}
+  
+  
+### Installation
+${data.Installation}
+To install the dependencies needed for this project, you would need to utilize npm install.
+
+
+
+### Usage
+${data.Usage}
+
+
+### License
+${data.License}
+
+${renderLicenseLink(data.License)}
+
+
+### Email
+Feel free to reach me for any questions about this project
+${data.Email}
+
+
+### GitHub
+Please check my other projects in github:
+
+[Github Profile](https://github.com/seanlthecoder)
+
+  
+### Testing
+${data.Testing}
+
+`
+
+
+
+
+
 }
 
 module.exports = generateMarkdown;

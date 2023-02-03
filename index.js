@@ -32,10 +32,10 @@ const questionsList = [
     message: "what is the license for this project?",
     choices: [
       "MIT",
-      "ISC",
+      "GPL 3.0",
       "Apache 2.0",
       "The Unlicense",
-      "Mozilla Public License 2.0",
+      "BSD 3",
     ],
   },
 
@@ -66,11 +66,18 @@ const questionsList = [
 
 // TODO: Create a function to initialize app
 function init() {
-  inquier.prompt(questionsList).then(function (data) {console.log(data)});
+  inquier.prompt(questionsList).then(function (data) {
+    console.log(data)
+    writeToFile("README.md", data)
+});
 }
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFileSync(fileName,generateMarkdown(data),function(err){
+        if (err) throw err;
+    })
+}
 
 // Function call to initialize app
 init();
