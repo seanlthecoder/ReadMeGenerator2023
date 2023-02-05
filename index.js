@@ -24,7 +24,7 @@ const questionsList = [
   {
     name: "usage",
     type: "input",
-    message: "how to use the application?",
+    message: "How do you use the application?",
   },
   {
     name: "License",
